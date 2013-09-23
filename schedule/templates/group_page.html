@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Список студентов группы{% endblock %}
+
+{% block content %}
+
+	<h2>Список студентов группы {{ name }}</h2>
+
+	<p><a href="{% url 'schedule_page' %}">Вернуться к расписанию</a></p><br>
+	
+	{% if students_list %}
+		<ul>
+			{% for student in students_list %}
+				<li>{{ student.name }}</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p class="text-muted">Список пуст</p>
+	{% endif %}
+
+{% endblock %}
