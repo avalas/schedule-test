@@ -8,9 +8,7 @@ import datetime
 def schedule_page(request):
 	"""Расписание занятий"""
 
-
 	#определим даты текущей недели
-
 	# текущая дата
 	today = datetime.date.today()
 
