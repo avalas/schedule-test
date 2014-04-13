@@ -1,0 +1,28 @@
+{% if schedule_day %}
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Время</th>
+        <th>Группа</th>
+        <th>Преподаватель</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in schedule_day %}
+        <tr>
+          <td>{{ row.time|time:"H:i" }}</td>
+          <td><a href="{% url 'group_page' row.group.id %}?name={{ row.group }}">{{ row.group }}</a></td>
+          <td>
+            <p>
+              <a href="{% url 'teacher_page' row.teacher.id %}">
+                {{ row.teacher }}  {{ row.teacher.first_name|first }}. {{ row.teacher.partonymic|first }}.
+              </a>
+            </p>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p class="text-muted">Занятий нет</p>
+{% endif %}<br>

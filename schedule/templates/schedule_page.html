@@ -9,213 +9,24 @@
           Расписание действует с <strong>{{ start_week }}</strong> до <strong>{{ end_week }}</strong></div>
         <br>
         <h3>Понедельник</h3>
-        {% if schedule_mon %}
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Время</th>
-                <th>Группа</th>
-                <th>Преподаватель</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in schedule_mon %}
-                <tr>
-                  <td>{{ row.time|time:"H:i" }}</td>
-                  <td><a href="{% url 'group_page' row.group.id %}?name={{ row.group }}">{{ row.group }}</a></td>
-                  <td>
-                    <p>
-                      <a href="{% url 'teacher_page' row.teacher.id %}">
-                        {{ row.teacher }}  {{ row.teacher.first_name|first }}. {{ row.teacher.partonymic|first }}.
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        {% else %}
-          <p class="text-muted">Занятий нет</p>
-        {% endif %}<br>
-                  
+        {% include "day_schedule.html" with schedule_day=schedule_mon %}
+
         <h3>Вторник</h3>
-        {% if schedule_tue %}
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Время</th>
-                <th>Группа</th>
-                <th>Преподаватель</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in schedule_tue %}
-                <tr>
-                  <td>{{ row.time|time:"H:i" }}</td>
-                  <td><a href="{% url 'group_page' row.group.id %}?name={{ row.group }}">{{ row.group }}</a></td>
-                  <td>
-                    <p>
-                      <a href="{% url 'teacher_page' row.teacher.id %}">
-                        {{ row.teacher }}  {{ row.teacher.first_name|first }}. {{ row.teacher.partonymic|first }}.
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        {% else %}
-          <p class="text-muted">Занятий нет</p>
-        {% endif %}<br>
+        {% include "day_schedule.html" with schedule_day=schedule_tue %}
 
         <h3>Среда</h3>
-        {% if schedule_wed %}
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Время</th>
-                <th>Группа</th>
-                <th>Преподаватель</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in schedule_wed %}
-                <tr>
-                  <td>{{ row.time|time:"H:i" }}</td>
-                  <td><a href="{% url 'group_page' row.group.id %}?name={{ row.group }}">{{ row.group }}</a></td>
-                  <td>
-                    <p>
-                      <a href="{% url 'teacher_page' row.teacher.id %}">
-                        {{ row.teacher }}  {{ row.teacher.first_name|first }}. {{ row.teacher.partonymic|first }}.
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        {% else %}
-          <p class="text-muted">Занятий нет</p>
-        {% endif %}<br>
+        {% include "day_schedule.html" with schedule_day=schedule_wed %}
 
         <h3>Четверг</h3>
-        {% if schedule_thu %}
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Время</th>
-                <th>Группа</th>
-                <th>Преподаватель</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in schedule_thu %}
-                <tr>
-                  <td>{{ row.time|time:"H:i" }}</td>
-                  <td><a href="{% url 'group_page' row.group.id %}?name={{ row.group }}">{{ row.group }}</a></td>
-                  <td>
-                    <p>
-                      <a href="{% url 'teacher_page' row.teacher.id %}">
-                        {{ row.teacher }}  {{ row.teacher.first_name|first }}. {{ row.teacher.partonymic|first }}.
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        {% else %}
-          <p class="text-muted">Занятий нет</p>
-        {% endif %}<br>
+        {% include "day_schedule.html" with schedule_day=schedule_thu %}
 
         <h3>Пятница</h3>
-        {% if schedule_fri %}
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Время</th>
-                <th>Группа</th>
-                <th>Преподаватель</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in schedule_fri %}
-                <tr>
-                  <td>{{ row.time|time:"H:i" }}</td>
-                  <td><a href="{% url 'group_page' row.group.id %}?name={{ row.group }}">{{ row.group }}</a></td>
-                  <td>
-                    <p>
-                      <a href="{% url 'teacher_page' row.teacher.id %}">
-                        {{ row.teacher }}  {{ row.teacher.first_name|first }}. {{ row.teacher.partonymic|first }}.
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        {% else %}
-          <p class="text-muted">Занятий нет</p>
-        {% endif %}<br>
+        {% include "day_schedule.html" with schedule_day=schedule_fri %}
 
         <h3>Суббота</h3>
-        {% if schedule_sat %}
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Время</th>
-                <th>Группа</th>
-                <th>Преподаватель</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in schedule_sat %}
-                <tr>
-                  <td>{{ row.time|time:"H:i" }}</td>
-                  <td><a href="{% url 'group_page' row.group.id %}?name={{ row.group }}">{{ row.group }}</a></td>
-                  <td>
-                    <p>
-                      <a href="{% url 'teacher_page' row.teacher.id %}">
-                        {{ row.teacher }}  {{ row.teacher.first_name|first }}. {{ row.teacher.partonymic|first }}.
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        {% else %}
-          <p class="text-muted">Занятий нет</p>
-        {% endif %}<br>
+        {% include "day_schedule.html" with schedule_day=schedule_sat %}
 
         <h3>Воскресенье</h3>
-        {% if schedule_sun %}
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Время</th>
-                <th>Группа</th>
-                <th>Преподаватель</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in schedule_sun %}
-                <tr>
-                  <td>{{ row.time|time:"H:i" }}</td>
-                  <td><a href="{% url 'group_page' row.group.id %}?name={{ row.group }}">{{ row.group }}</a></td>
-                  <td>
-                    <p>
-                      <a href="{% url 'teacher_page' row.teacher.id %}">
-                        {{ row.teacher }}  {{ row.teacher.first_name|first }}. {{ row.teacher.partonymic|first }}.
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        {% else %}
-          <p class="text-muted">Занятий нет</p>
-        {% endif %}<br>
+        {% include "day_schedule.html" with schedule_day=schedule_sun %}
 
 {% endblock %}
